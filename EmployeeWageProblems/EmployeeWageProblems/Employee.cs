@@ -11,17 +11,23 @@ namespace EmployeeWageProblems
         public static void IsCheck()
         {
             int full_time = 1;
+            int EmpWagePerHr= 20;
+
+            int empHrs = 0;
+            int empWage = 0; 
             Random random= new Random();
             int check = random.Next(0,2);
 
             if(check == full_time)
             {
-                Console.WriteLine("Employee is present");
+                empHrs = 8;
             }
             else 
             {
-                Console.WriteLine("Employee is absent");
+                empHrs = 4;
             }
+        empWage = empHrs * EmpWagePerHr;
+        Console.WriteLine("Emp wage: " + empWage);
         }
 
     }
