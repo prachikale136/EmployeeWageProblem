@@ -13,14 +13,18 @@ namespace EmployeeWageProblems
             const int Part_Time = 1;
             const int Full_Time = 2;
             const int NumberOFWorkingDays = 20;
+            const int MaximumworkingHrs = 100;
             int EmpWagePerHr= 20;
 
             int empHrs = 0;
             int empWage = 0;
-            int  totalEmpWage = 0;
+            int  totalEmphrs = 0;
+            int totalWorkingDays = 0;
+            int totalEmpWage = 0;
             
-            for(int days =0; days < NumberOFWorkingDays; days++)
+            while(totalEmphrs <= MaximumworkingHrs && totalWorkingDays <= NumberOFWorkingDays)
             {
+                totalWorkingDays++;
                 Random random = new Random();
                 int check = random.Next(0, 3);
                 switch (check)
@@ -35,6 +39,8 @@ namespace EmployeeWageProblems
                         empHrs = 0;
                         break;
                 }
+                totalEmphrs += empHrs;
+                Console.WriteLine("Days:" +totalWorkingDays + "EmpHrs:" +empHrs);
                 empWage = empHrs * EmpWagePerHr;
                 totalEmpWage += empWage;
                 Console.WriteLine(" Emp wage: " + empWage);
