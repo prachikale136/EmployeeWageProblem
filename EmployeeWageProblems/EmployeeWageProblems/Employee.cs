@@ -10,8 +10,8 @@ namespace EmployeeWageProblems
     {
         public static void IsCheck()
         {
-            int Part_Time = 0;
-            int Full_Time = 1;
+            const int Part_Time = 1;
+            const int Full_Time = 2;
             int EmpWagePerHr= 20;
 
             int empHrs = 0;
@@ -19,17 +19,17 @@ namespace EmployeeWageProblems
             Random random= new Random();
             int check = random.Next(0,3);
 
-            if(check == Full_Time)
+           switch(check)
             {
-                empHrs = 8;
-            }
-            else if(check == Part_Time) 
-            {
-                empHrs = 4;
-            }
-            else
-            {
-                empHrs = 0;
+                case Full_Time:
+                       empHrs = 8;
+                    break;
+                case Part_Time:
+                    empHrs = 4;
+                    break;
+                default:
+                    empHrs = 0;
+                    break;
             }
         empWage = empHrs * EmpWagePerHr;
         Console.WriteLine("Emp wage: " + empWage);
